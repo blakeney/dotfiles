@@ -1,0 +1,5 @@
+# To enable use of this file, execute
+# git config --global core.excludesfile '~/.gitignore'
+
+*.swp
+.tags
