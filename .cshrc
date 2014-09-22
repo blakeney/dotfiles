@@ -14,7 +14,7 @@ alias ll	ls -lA
 alias ls	ls -G
 
 # Use Exuberent CTags for gVim compatibility
-alias ctags exctags
+alias ctags exctags -f .tags
 
 # Git Aliases
 alias Gs 'git status'
