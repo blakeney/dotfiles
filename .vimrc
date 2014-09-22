@@ -6,6 +6,7 @@ set incsearch
 set ignorecase
 set smartcase " Case insensitve search unless query includes capital letters
 set hidden " Allow moving away from modified buffer
+set tags=./.tags;
 let mapleader=","
 
 " Appearance
