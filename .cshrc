@@ -13,8 +13,8 @@ alias lf	ls -FA
 alias ll	ls -lA
 alias ls	ls -G
 
-# Use Exuberent CTags for gVim compatibility
-alias ctags exctags -f .tags
+# Use Exuberant CTags for gVim compatibility
+alias ctags exctags --exclude=target --exclude=vendor -f .tags
 
 # Git Aliases
 alias Gs 'git status'
