@@ -43,3 +43,11 @@ command! Bd bp | bd #
 
 " Shortcut to Toggle Line Numbers in Current Buffer
 nnoremap <leader># :set nu!<cr>
+
+" Autocommands
+augroup indentation
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal noexpandtab
+    autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
+    autocmd BufNewFile,BufRead *.scala setlocal shiftwidth=2
+augroup END
