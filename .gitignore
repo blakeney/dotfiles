@@ -3,3 +3,6 @@
 
 *.swp
 .tags
+.project
+.settings
+.classpath
