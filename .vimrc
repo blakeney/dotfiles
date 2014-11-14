@@ -51,6 +51,7 @@ nnoremap <leader># :set nu!<cr>
 
 " Eclim Shortcuts
 nnoremap <c-j>c :JavaCorrect<cr>
+nnoremap <c-j>d :JavaDocComment<cr>
 nnoremap <c-j>v :Validate<cr>
 
 " Autocommands
