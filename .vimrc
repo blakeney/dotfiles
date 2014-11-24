@@ -31,6 +31,14 @@ set shiftwidth=4
 set noexpandtab " Use tabs instead of spaces
 filetype plugin indent on
 
+" Wrapping
+set nolist  " list disables linebreak
+set wrap
+set linebreak
+set textwidth=0
+set wrapmargin=0
+set formatoptions+=t
+
 " CUA Keys
 vnoremap <c-x> "+x
 vnoremap <c-c> "+y
