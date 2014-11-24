@@ -1,4 +1,5 @@
 " General Behavior
+set nobackup
 set autochdir
 set autoindent
 set backspace=indent,eol,start
@@ -14,8 +15,8 @@ syntax on
 set hlsearch
 set ruler
 set guifont=Monospace\ 11
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 " Mouse
 set mouse=a " Mouse support everywhere
@@ -27,7 +28,7 @@ endif
 " Indentation
 set tabstop=4
 set shiftwidth=4
-set expandtab " Use spaces instead of tabs
+set noexpandtab " Use tabs instead of spaces
 filetype plugin indent on
 
 " CUA Keys
@@ -51,13 +52,11 @@ nnoremap <leader># :set nu!<cr>
 
 " Eclim Shortcuts
 nnoremap <c-j>c :JavaCorrect<cr>
-nnoremap <c-j>d :JavaDocComment<cr>
 nnoremap <c-j>v :Validate<cr>
 
 " Autocommands
 augroup indentation
     autocmd!
-    autocmd BufNewFile,BufRead *.py setlocal noexpandtab
-    autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
-    autocmd BufNewFile,BufRead *.scala setlocal shiftwidth=2
+    autocmd BufNewFile,BufRead *.{rb,scala} setlocal shiftwidth=2
+    autocmd BufNewFile,BufRead *.{rb,scala,java} setlocal expandtab
 augroup END
