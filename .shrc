@@ -1,0 +1,13 @@
+# SH/KSH Configuration, Copied and Modified from NetBSD 6.1.5 Default
+
+# Note: Environment Variables Should be Set in .profile
+# via 'export'
+
+# Interactive Mode Settings
+case "$-" in *i*)
+        # Prompt
+        PS1="[\$(whoami)@\$(hostname)] \${PWD##*/} \$ "
+        # Command-Line Editing
+        set -o emacs
+        ;;
+esac
