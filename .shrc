@@ -39,22 +39,21 @@ alias ls='ls -G'
 # search path for cd(1)
 # CDPATH=.:$HOME
 
-# Escape Character Support
+# Control Character Support
+n="`echo x | tr x '\000'`"
 e="`echo x | tr x '\033'`"
 attrbold="${e}[1m"
 attroff="${e}[0m"
 
-# Formatted Prompt Directory
-promptdir="`echo $PWD | sed -e 's/^\/usr\/home\//\/home\//' -e 's/^\/home\/jblakeney/~/' -e 's/^\/home\//~/'`"
-
-# Enable features of specific shell implementations
-case $0 in *ksh)
-    bind ^i=complete-list
-    PS1="${attrbold}[\$(whoami)@\$(hostname)] \$promptdir \$ $attroff"
-    ;;
-esac
-
 # Interactive Mode Settings
 case "$-" in *i*)
-    ;;
+# Enable features of specific shell implementations
+case $0 in *ksh)
+bind ^i=complete-list
+PS1="${n}\\
+${n}${attrbold}[\$(whoami)@\$(hostname)] \${PWD##*/} \$ ${n}${attroff}"
+;;
 esac
+;;
+esac
+
