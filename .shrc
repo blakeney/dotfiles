@@ -29,7 +29,7 @@ alias g='egrep -i'
 alias ls='ls -G'
 
 # other more esoteric aliases
-[ -e $HOME/.shaliases ] && . $HOME/.shaliases
+[ -e $HOME/.shaliases ] && . $HOME/.shaliases || source $HOME/.shaliases
  
 # # paranoid aliases
 # alias cp='cp -ip'
@@ -53,7 +53,10 @@ bind ^i=complete-list
 PS1="${n}\\
 ${n}${attrbold}[\$(whoami)@\$(hostname)] \${PWD##*/} \$ ${n}${attroff}"
 ;;
+zsh)
+bindkey -e
+PS1="%{%B%}[%n@%m] %1d %#%{%b%} "
+;;
 esac
 ;;
 esac
-
