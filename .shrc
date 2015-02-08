@@ -53,10 +53,6 @@ bind ^i=complete-list
 PS1="${n}\\
 ${n}${attrbold}[\$(whoami)@\$(hostname)] \${PWD##*/} \$ ${n}${attroff}"
 ;;
-zsh)
-bindkey -e
-PS1="%{%B%}[%n@%m] %1d %#%{%b%} "
-;;
 esac
 ;;
 esac
