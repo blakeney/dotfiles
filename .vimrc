@@ -44,8 +44,8 @@ vnoremap <c-x> "+x
 vnoremap <c-c> "+y
 inoremap <c-v> <c-o>"+gP
 
-" Netrw File Explorer
-nnoremap <c-l> :20Vexplore<cr>
+" Netrw File Explorer -- No Longer Used
+"nnoremap <c-n> :20Vexplore<cr>
 let g:netrw_liststyle=3 " Tree Listing
 let g:netrw_list_hide='^\..*$' " Hide Dotfiles
 let g:netrw_hide=1 " Activate Hiding
@@ -58,14 +58,43 @@ command! Bd bp | bd #
 " Shortcut to Toggle Line Numbers in Current Buffer
 nnoremap <leader># :set nu!<cr>
 
-" Eclim Shortcuts
-nnoremap <c-j>c :JavaCorrect<cr>
-nnoremap <c-j>d :JavaDocComment<cr>
-nnoremap <c-j>v :Validate<cr>
-
 " Autocommands
 augroup indentation
     autocmd!
     autocmd BufNewFile,BufRead *.{rb,scala} setlocal shiftwidth=2
     autocmd BufNewFile,BufRead *.{rb,scala,java} setlocal expandtab
 augroup END
+
+" Plugins
+" Pathogen
+execute pathogen#infect()
+" MiniBufExpl (Fork by fholgado)
+nnoremap <c-h> :MBEbp<cr>
+nnoremap <c-l> :MBEbn<cr>
+" NERD Tree
+nnoremap <c-n> :NERDTreeToggle<cr>
+let g:NERDTreeDirArrows = 0
+" Syntastic
+nnoremap <c-y>c :SyntasticCheck<cr>
+" Maven (via maven-compiler)
+augroup maven
+	autocmd!
+	autocmd Filetype java compiler mvn
+	autocmd Filetype pom compiler mvn
+augroup END
+nnoremap <c-m>c :make compile<cr>
+nnoremap <c-m>t :make test<cr>
+nnoremap <c-m>p :make compile test assembly:single<cr>
+nnoremap <c-m>e :make eclipse:clean eclipse:eclipse<cr>
+" SBT (via vim-scala)
+augroup sbt
+	autocmd!
+	autocmd Filetype scala compiler sbt
+	autocmd Filetype sbt compiler sbt
+augroup END
+" Eclim -- No Longer Used
+"nnoremap <c-j>v :Validate<cr>
+"nnoremap <c-j>c :JavaCorrect<cr>
+"nnoremap <c-j>d :JavaDocComment<cr>
+"nnoremap <c-j>r :ProjectRefresh<cr>
+"nnoremap <c-j>i :ProjectImport .<cr>
