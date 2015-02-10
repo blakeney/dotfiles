@@ -1,4 +1,5 @@
 " General Behavior
+set directory=$HOME/.vim/swapfiles//
 set nobackup
 set autochdir
 set autoindent
@@ -73,10 +74,10 @@ Helptags " Needed to generate help for plugins
 nnoremap <c-h> :MBEbp<cr>
 nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
-nnoremap <c-n> :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
 " Syntastic
-nnoremap <c-y>c :SyntasticCheck<cr>
+nnoremap <leader>c :SyntasticCheck<cr>
 " Maven (via maven-compiler)
 augroup maven
 	autocmd!
