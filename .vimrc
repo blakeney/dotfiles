@@ -68,6 +68,7 @@ augroup END
 " Plugins
 " Pathogen
 execute pathogen#infect()
+Helptags " Needed to generate help for plugins
 " MiniBufExpl (Fork by fholgado)
 nnoremap <c-h> :MBEbp<cr>
 nnoremap <c-l> :MBEbn<cr>
