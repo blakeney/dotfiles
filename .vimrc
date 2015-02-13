@@ -78,6 +78,7 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
 " Syntastic
 nnoremap <leader>c :SyntasticCheck<cr>
+let g:syntastic_mode_map = {"mode":"passive", "active_filetypes":[], "passive_filetypes":["sbt"]}
 " Maven (via maven-compiler)
 augroup maven
 	autocmd!
