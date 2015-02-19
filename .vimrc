@@ -71,11 +71,18 @@ augroup END
 execute pathogen#infect()
 Helptags " Needed to generate help for plugins
 " MiniBufExpl (Fork by fholgado)
+nnoremap <leader>b :MBEToggle<cr>
 nnoremap <c-h> :MBEbp<cr>
 nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
 nnoremap <leader>t :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
+" Fugitive
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gd :Gpull<cr>
+nnoremap <leader>gu :Gpush<cr>
+nnoremap <leader>gca :Gcommit -a<cr>
+nnoremap <leader>gcc :Gcommit<cr>
 " Syntastic
 nnoremap <leader>c :SyntasticCheck<cr>
 let g:syntastic_mode_map = {"mode":"passive", "active_filetypes":[], "passive_filetypes":["sbt"]}
@@ -85,10 +92,10 @@ augroup maven
 	autocmd Filetype java compiler mvn
 	autocmd Filetype pom compiler mvn
 augroup END
-nnoremap <c-m>c :make compile<cr>
-nnoremap <c-m>t :make test<cr>
-nnoremap <c-m>p :make compile test assembly:single<cr>
-nnoremap <c-m>e :make eclipse:clean eclipse:eclipse<cr>
+nnoremap <leader>mc :make compile<cr>
+nnoremap <leader>mt :make test<cr>
+nnoremap <leader>mp :make compile test assembly:single<cr>
+nnoremap <leader>me :make eclipse:clean eclipse:eclipse<cr>
 " SBT (via vim-scala)
 augroup sbt
 	autocmd!
