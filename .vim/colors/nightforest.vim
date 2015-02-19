@@ -2,7 +2,7 @@
 " vim: tw=0 ts=4 sw=4
 " Vim color file
 " Maintainer:	John Blakeney <blakeney@alum.mit.edu>
-" Last Change:	2015 February 17
+" Last Change:	2015 February 18
 " Based on the koehler colorscheme by Ron Aaron
 
 hi clear
@@ -21,7 +21,7 @@ hi ErrorMsg		  term=standout  cterm=bold  ctermfg=grey  ctermbg=red  guifg=green
 hi Search		  term=reverse  ctermfg=black  ctermbg=yellow      guifg=black  guibg=yellow
 hi MoreMsg		  term=bold  cterm=bold  ctermfg=darkgreen	gui=bold  guifg=SeaGreen
 hi ModeMsg		  term=bold  cterm=bold  gui=bold  guifg=green	guibg=black
-hi LineNr		  term=underline  cterm=bold  ctermfg=darkgreen	guifg=Yellow
+hi LineNr		  term=underline  cterm=bold  ctermfg=darkgreen	guifg=darkgreen
 hi Question		  term=standout  cterm=bold  ctermfg=darkgreen	gui=bold  guifg=Green
 hi StatusLine	  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi StatusLineNC   term=reverse	ctermfg=green ctermbg=black guifg=green guibg=black
@@ -38,8 +38,8 @@ hi PreProc		  term=underline  ctermfg=darkmagenta   guifg=darkmagenta
 hi Type			  term=underline  cterm=bold ctermfg=lightgreen  gui=bold  guifg=lightgreen
 hi Error		  term=reverse	ctermfg=darkgreen  ctermbg=black  guifg=Red	guibg=Black
 hi Todo			  term=standout  ctermfg=black	ctermbg=darkgreen  guifg=black  guibg=Yellow
-hi CursorLine	  term=underline  guibg=#555555 cterm=underline
-hi CursorColumn	  term=underline  guibg=#555555 cterm=underline
+hi CursorLine	  term=underline  guibg=yellow guifg=black cterm=underline
+hi CursorColumn	  term=underline  guibg=yellow guifg=black cterm=underline
 hi MatchParen	  term=reverse  ctermfg=black guibg=black
 hi TabLine		  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
