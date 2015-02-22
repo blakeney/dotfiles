@@ -2,7 +2,7 @@
 " vim: tw=0 ts=4 sw=4
 " Vim color file
 " Maintainer:	John Blakeney <blakeney@alum.mit.edu>
-" Last Change:	2015 February 18
+" Last Change:	2015 February 21
 " Based on the koehler colorscheme by Ron Aaron
 
 hi clear
@@ -29,7 +29,7 @@ hi Title		  term=bold  cterm=bold  ctermfg=darkmagenta  gui=bold	guifg=Magenta
 hi Visual		  term=reverse	cterm=reverse  gui=reverse
 hi WarningMsg	  term=standout  cterm=bold  ctermfg=darkred guifg=Red
 hi Cursor		  guifg=bg	guibg=Green
-hi Comment		  term=bold  cterm=bold ctermfg=green  guifg=green
+hi Comment		  term=bold  cterm=bold ctermfg=magenta  guifg=magenta
 hi Constant		  term=underline  cterm=bold ctermfg=magenta  guifg=magenta
 hi Special		  term=bold  cterm=bold ctermfg=red  guifg=Orange
 hi Identifier	  term=underline   ctermfg=brown  guifg=brown
