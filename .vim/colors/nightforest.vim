@@ -40,7 +40,7 @@ hi Error		  term=reverse	ctermfg=darkgreen  ctermbg=black  guifg=Red	guibg=Black
 hi Todo			  term=standout  ctermfg=black	ctermbg=darkgreen  guifg=black  guibg=Yellow
 hi CursorLine	  term=underline  guibg=yellow guifg=black cterm=underline
 hi CursorColumn	  term=underline  guibg=yellow guifg=black cterm=underline
-hi MatchParen	  term=reverse  ctermfg=black guibg=black
+hi MatchParen	  term=reverse  gui=reverse
 hi TabLine		  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi TabLineSel	  term=reverse	ctermfg=green ctermbg=black guifg=green guibg=black
