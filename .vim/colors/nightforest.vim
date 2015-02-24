@@ -2,7 +2,7 @@
 " vim: tw=0 ts=4 sw=4
 " Vim color file
 " Maintainer:	John Blakeney <blakeney@alum.mit.edu>
-" Last Change:	2015 February 21
+" Last Change:	2015 February 24
 " Based on the koehler colorscheme by Ron Aaron
 
 hi clear
@@ -44,7 +44,7 @@ hi MatchParen	  term=reverse  gui=reverse
 hi TabLine		  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=black ctermbg=green gui=bold guifg=black guibg=green
 hi TabLineSel	  term=reverse	ctermfg=green ctermbg=black guifg=green guibg=black
-hi Underlined	  term=underline cterm=bold,underline ctermfg=black guifg=black gui=bold,underline
+hi Underlined	  term=underline cterm=bold,underline ctermfg=yellow guifg=black gui=bold,underline
 hi Ignore		  ctermfg=black ctermbg=black guifg=black guibg=black
 hi link IncSearch		Visual
 hi link String			Constant
