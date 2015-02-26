@@ -59,6 +59,14 @@ command! Bd bp | bd #
 " Shortcut to Toggle Line Numbers in Current Buffer
 nnoremap <leader># :set nu!<cr>
 
+" tmux Integration
+function! TmuxCD(target)
+	execute "silent !tmux send-keys -t " . a:target . " \"cd $(dirname " . expand("%:p") . ")\" C-m"
+	execute "redraw!"
+endfunction
+command! -nargs=1 TmuxCD call TmuxCD(<f-args>)
+nnoremap <leader>d :TmuxCD 
+
 " Autocommands
 augroup indentation
     autocmd!
