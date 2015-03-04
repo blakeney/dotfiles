@@ -16,7 +16,8 @@ syntax on
 set hlsearch
 set ruler
 set guifont=Monospace\ 11
-"colorscheme nightforest
+"set background=dark
+colorscheme nightforest
 
 " Mouse
 set mouse=a " Mouse support everywhere
@@ -44,8 +45,7 @@ vnoremap <c-x> "+x
 vnoremap <c-c> "+y
 inoremap <c-v> <c-o>"+gP
 
-" Netrw File Explorer -- No Longer Used
-"nnoremap <c-n> :20Vexplore<cr>
+" Netrw File Explorer (if not using NERDTree)
 let g:netrw_liststyle=3 " Tree Listing
 let g:netrw_list_hide='^\..*$' " Hide Dotfiles
 let g:netrw_hide=1 " Activate Hiding
@@ -77,12 +77,18 @@ Helptags " Needed to generate help for plugins
 " bbye
 nnoremap <leader>dd :Bdelete<cr>
 nnoremap <leader>da :bufdo :Bdelete<cr>
+" vifm
+nnoremap <leader>fe :EditVifm<cr>
+nnoremap <leader>fs :SplitVifm<cr>
+nnoremap <leader>fv :VsplitVifm<cr>
+nnoremap <leader>ft :TabVifm<cr>
+nnoremap <leader>fd :DiffVifm<cr>
 " MiniBufExpl (Fork by fholgado)
 nnoremap <leader>b :MBEToggle<cr>
 nnoremap <c-h> :MBEbp<cr>
 nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
-nnoremap <leader>f :NERDTreeToggle<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
 " Fugitive
 nnoremap <leader>gs :Gstatus<cr>
