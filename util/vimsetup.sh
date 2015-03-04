@@ -14,6 +14,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vi
 dir = `pwd`
 cd ~/.vim/bundle
 git clone https://github.com/moll/vim-bbye
+git clone https://github.com/vifm/vifm.vim
 git clone https://github.com/JalaiAmitahl/maven-compiler.vim
 git clone https://github.com/fholgado/minibufexpl.vim
 git clone https://github.com/scrooloose/nerdtree
