@@ -16,8 +16,7 @@ syntax on
 set hlsearch
 set ruler
 set guifont=Monospace\ 11
-"set background=dark
-"colorscheme solarized
+"colorscheme nightforest
 
 " Mouse
 set mouse=a " Mouse support everywhere
@@ -53,9 +52,6 @@ let g:netrw_hide=1 " Activate Hiding
 let g:netrw_browse_split=4 " Open in Last Window
 let g:netrw_use_errorwindow=0 " Disable Error Window 
 
-" Command to Close Buffer without Closing Window
-command! Bd bp | bd #
-
 " Shortcut to Toggle Line Numbers in Current Buffer
 nnoremap <leader># :set nu!<cr>
 
@@ -65,7 +61,7 @@ function! TmuxCD(target)
 	execute "redraw!"
 endfunction
 command! -nargs=1 TmuxCD call TmuxCD(<f-args>)
-nnoremap <leader>d :TmuxCD 
+nnoremap <leader>tw :TmuxCD 
 
 " Autocommands
 augroup indentation
@@ -78,12 +74,15 @@ augroup END
 " Pathogen
 execute pathogen#infect()
 Helptags " Needed to generate help for plugins
+" bbye
+nnoremap <leader>dd :Bdelete<cr>
+nnoremap <leader>da :bufdo :Bdelete<cr>
 " MiniBufExpl (Fork by fholgado)
 nnoremap <leader>b :MBEToggle<cr>
 nnoremap <c-h> :MBEbp<cr>
 nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
-nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>f :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
 " Fugitive
 nnoremap <leader>gs :Gstatus<cr>
@@ -110,9 +109,3 @@ augroup sbt
 	autocmd Filetype scala compiler sbt
 	autocmd Filetype sbt compiler sbt
 augroup END
-" Eclim -- No Longer Used
-"nnoremap <c-j>v :Validate<cr>
-"nnoremap <c-j>c :JavaCorrect<cr>
-"nnoremap <c-j>d :JavaDocComment<cr>
-"nnoremap <c-j>r :ProjectRefresh<cr>
-"nnoremap <c-j>i :ProjectImport .<cr>
