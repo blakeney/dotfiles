@@ -24,4 +24,5 @@ git clone https://github.com/tpope/vim-fugitive
 git clone https://github.com/derekwyatt/vim-scala
 git clone https://github.com/cespare/vjde
 git clone https://github.com/jceb/vim-orgmode
+git clone https://github.com/tpope/vim-speeddating
 cd $dir
