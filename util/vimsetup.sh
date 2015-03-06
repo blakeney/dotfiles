@@ -15,6 +15,7 @@ dir = `pwd`
 cd ~/.vim/bundle
 git clone https://github.com/moll/vim-bbye
 git clone https://github.com/vifm/vifm.vim
+git clone https://github.com/altercation/vim-colors-solarized
 git clone https://github.com/JalaiAmitahl/maven-compiler.vim
 git clone https://github.com/fholgado/minibufexpl.vim
 git clone https://github.com/scrooloose/nerdtree
@@ -22,4 +23,5 @@ git clone https://github.com/scrooloose/syntastic
 git clone https://github.com/tpope/vim-fugitive
 git clone https://github.com/derekwyatt/vim-scala
 git clone https://github.com/cespare/vjde
+git clone https://github.com/jceb/vim-orgmode
 cd $dir
