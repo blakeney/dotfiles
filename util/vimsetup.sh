@@ -13,6 +13,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vi
 # Plugins
 dir = `pwd`
 cd ~/.vim/bundle
+git clone https://github.com/maxbrunsfeld/vim-emacs-bindings
 git clone https://github.com/moll/vim-bbye
 git clone https://github.com/vifm/vifm.vim
 git clone https://github.com/altercation/vim-colors-solarized
