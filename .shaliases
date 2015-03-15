@@ -1,6 +1,12 @@
 # Use Exuberant CTags for gVim compatibility
 alias ctags='exctags --exclude=target --exclude=vendor -f .tags'
 
+# Fix weather CLI utility
+alias weather='weather --setpath /usr/local/share/weather'
+
+# Clear xterm window title
+alias cleartitle='echo -ne \\033]0\;$HOST\\007;'
+
 # Git Aliases
 alias Gs='git status'
 alias Gl='git log'
