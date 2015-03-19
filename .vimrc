@@ -51,8 +51,11 @@ let g:netrw_hide=1 " Activate Hiding
 let g:netrw_browse_split=4 " Open in Last Window
 let g:netrw_use_errorwindow=0 " Disable Error Window 
 
-" Shortcut to Toggle Line Numbers in Current Buffer
+" Toggle Line Numbers
 nnoremap <leader># :set nu!<cr>
+
+" Look Up Word Under Cursor in Dictionary
+nnoremap <leader>ld :!dict -d wn <cword><cr>
 
 " tmux Integration
 function! TmuxCD(target)
