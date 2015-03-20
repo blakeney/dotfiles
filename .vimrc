@@ -16,7 +16,7 @@ syntax on
 set hlsearch
 set ruler
 set guifont=Monospace\ 11
-"colorscheme nightforest
+set background=dark
 
 " Mouse
 set mouse=a " Mouse support everywhere
