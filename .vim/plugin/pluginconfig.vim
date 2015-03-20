@@ -2,7 +2,6 @@
 " Pathogen
 Helptags " Needed to generate help for plugins
 " solarized
-set background=dark
 colorscheme solarized
 " bbye
 nnoremap <leader>dd :Bdelete<cr>
