@@ -19,6 +19,8 @@ nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
 nnoremap <leader>e :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
+" vim-orgmode
+let g:org_indent=0
 " Fugitive
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gd :Gpull<cr>
