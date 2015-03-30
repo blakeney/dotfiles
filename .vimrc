@@ -54,6 +54,9 @@ let g:netrw_use_errorwindow=0 " Disable Error Window
 " Toggle Line Numbers
 nnoremap <leader># :set nu!<cr>
 
+" Insert Timestamp
+nnoremap <leader>it :r! date<cr>
+
 " Look Up Word Under Cursor in Dictionary
 nnoremap <leader>ld :!dict -d wn <cword><cr>
 
