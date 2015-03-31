@@ -3,6 +3,7 @@
 Helptags " Needed to generate help for plugins
 " solarized
 colorscheme solarized
+call togglebg#map("") " Fix background toggle function
 " bbye
 nnoremap <leader>dd :Bdelete<cr>
 nnoremap <leader>da :bufdo :Bdelete<cr>
