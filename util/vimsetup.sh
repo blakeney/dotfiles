@@ -18,6 +18,7 @@ git clone https://github.com/moll/vim-bbye
 git clone https://github.com/tpope/vim-dispatch
 git clone https://github.com/vifm/vifm.vim
 git clone https://github.com/altercation/vim-colors-solarized
+git clone https://github.com/airblade/vim-rooter
 git clone https://github.com/JalaiAmitahl/maven-compiler.vim
 git clone https://github.com/fholgado/minibufexpl.vim
 git clone https://github.com/scrooloose/nerdtree
