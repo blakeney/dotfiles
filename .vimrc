@@ -24,6 +24,8 @@ if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
+nnoremap <leader>m :set mouse=a<cr>
+nnoremap <leader>M :set mouse=<cr>
 
 " Indentation
 set tabstop=4
