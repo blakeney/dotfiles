@@ -7,6 +7,8 @@ call togglebg#map("") " Fix background toggle function
 " bbye
 nnoremap <leader>dd :Bdelete<cr>
 nnoremap <leader>da :bufdo :Bdelete<cr>
+" vim-rooter
+let g:rooter_silent_chdir = 1
 " vifm
 nnoremap <leader>fe :EditVifm<cr>
 nnoremap <leader>fs :SplitVifm<cr>
