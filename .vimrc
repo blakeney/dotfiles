@@ -72,9 +72,11 @@ nnoremap <leader>tw :TmuxCD
 
 " Autocommands
 augroup indentation
-    autocmd!
-    autocmd BufNewFile,BufRead *.{rb,scala} setlocal shiftwidth=2
-    autocmd BufNewFile,BufRead *.{rb,scala,java} setlocal expandtab
+	autocmd!
+	autocmd BufNewFile,BufRead *.{rb,scala} setlocal shiftwidth=2
+	autocmd BufNewFile,BufRead *.{rb,scala,java} setlocal expandtab
+	autocmd BufNewFile,BufRead *.{py} setlocal shiftwidth=4
+	autocmd BufNewFile,BufRead *.{py} setlocal noexpandtab
 augroup END
 
 " Pathogen
