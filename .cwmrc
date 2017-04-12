@@ -1,0 +1,22 @@
+command term urxvt
+command browser firefox
+command mail thunderbird
+command office soffice
+command editor xedit
+command image-editor gimp
+command clipboard xclipboard
+command manual xman
+
+#bind CS-Return  "xterm -e top"
+bind XF86Calculator xcalc
+bind XF86WWW firefox
+
+gap 17 0 0 0
+
+color activeborder green
+color inactiveborder white
+
+color font green
+color menufg white
+color menubg black
+
