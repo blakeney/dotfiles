@@ -25,7 +25,8 @@ git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/scrooloose/syntastic
 git clone https://github.com/tpope/vim-fugitive
 git clone https://github.com/derekwyatt/vim-scala
-git clone https://github.com/cespare/vjde
 git clone https://github.com/jceb/vim-orgmode
 git clone https://github.com/tpope/vim-speeddating
+git clone https://github.com/elzr/vim-json.git
+git clone https://github.com/chrisbra/csv.vim.git
 cd $dir

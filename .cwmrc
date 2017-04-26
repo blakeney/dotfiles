@@ -1,0 +1,30 @@
+#command term urxvt
+#command browser firefox
+command browser google-chrome-stable
+command calculator xcalc
+command clipboard xclipboard
+command image-editor gimp
+command manual xman
+command eyes xeyes
+command magnifier xmag
+
+mousebind M-2 window_lower
+mousebind M-3 window_resize
+
+#bind CS-Return  "xterm -e top"
+#bind XF86Calculator xcalc
+#bind XF86WWW google-chrome
+
+#gap 17 0 0 0
+
+color activeborder green
+color inactiveborder white
+
+color font green
+color menufg white
+color menubg black
+
+autogroup 1 "Xfce4-terminal"
+autogroup 2 "Firefox"
+autogroup 2 "Google-chrome"
+

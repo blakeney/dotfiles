@@ -7,6 +7,14 @@ call togglebg#map("") " Fix background toggle function
 " bbye
 nnoremap <leader>dd :Bdelete<cr>
 nnoremap <leader>da :bufdo :Bdelete<cr>
+" ensime
+nnoremap <leader>ec :EnTypeCheck<cr>
+nnoremap <leader>ep :EnShowPackage
+nnoremap <leader>ed :EnDeclaration<cr>
+nnoremap <leader>eD :EnDeclarationSplit<cr>
+nnoremap <leader>eb :EnDocBrowse<cr>
+nnoremap <leader>et :EnInspectType<cr>
+nnoremap <leader>es :EnSearch 
 " vim-rooter
 let g:rooter_silent_chdir = 1
 " vifm
@@ -22,14 +30,18 @@ nnoremap <c-l> :MBEbn<cr>
 " NERD Tree
 nnoremap <leader>e :NERDTreeToggle<cr>
 let g:NERDTreeDirArrows = 0
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 " vim-orgmode
 let g:org_indent=0
 " Fugitive
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gd :Gpull<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gd :Git pull --rebase<cr>
 nnoremap <leader>gu :Gpush<cr>
 nnoremap <leader>gca :Gcommit -a<cr>
 nnoremap <leader>gcc :Gcommit<cr>
+nnoremap <leader>gb :Gblame<cr>
 " Syntastic
 nnoremap <leader>c :SyntasticCheck<cr>
 let g:syntastic_mode_map = {"mode":"passive", "active_filetypes":[], "passive_filetypes":["sbt"]}
