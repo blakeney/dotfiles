@@ -1,137 +1,150 @@
-" PLUGINS
-" Use the :PlugInstall command to install new plugins
-"
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+vim9script
 
-call plug#begin('~/.vim/plugged')
+# =========================
+# Core behavior
+# =========================
+set nocompatible
+g:mapleader = ' '
 
-" Sensible defaults and behavior tweaks
-Plug 'tpope/vim-sensible'
-Plug 'moll/vim-bbye'
-
-" Solarized Color Scheme
-Plug 'altercation/vim-colors-solarized'
-
-" File Explorer (Better than built-in netrw)
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Language Server Support
-" While editing a language file, run :LspInstallServer to install a server
-" To uninstall a server, run :LspUninstallServer server-name
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-" Build Tool Support
-Plug 'hdiniz/vim-gradle'
-Plug 'timonv/vim-cargo'
-
-" Project Support
-Plug 'airblade/vim-rooter'
-
-" Other
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-fugitive'
-Plug 'maxbrunsfeld/vim-emacs-bindings'
-
-call plug#end()
-
-
-" LOCAL CUSTOMIZATIONS
-
-" Appearance
-if has('gui_running')
-  colorscheme solarized
-  set background=dark
-endif
-
-" General Behavior
-if empty(glob('~/.vim/swapfiles'))
-  call mkdir($HOME . "/.vim/swapfiles", "p", 0700)
-endif
-set directory=$HOME/.vim/swapfiles// " Swap file location
-set nobackup " Suppress backup files
-set hidden " Allow moving away from modified buffer
-set smartcase " Case insensitve search unless query includes capital letters
-let mapleader=" "
-set wildcharm=<C-z> " Use C-z to simulate tab in keybindings
-
-" Shortcuts
-nnoremap <leader>fe :NERDTreeToggle<CR>
-nnoremap <leader>fs :w<CR>
-nnoremap <leader>w <C-w>
-nnoremap <leader>bb :b 
-nnoremap <leader>bl :b <C-z>
-nnoremap <leader>bd :Bdelete<cr>
-nnoremap <leader>bD :bufdo :Bdelete
-nnoremap <leader>sc :e ~/.vimrc<cr>
-nnoremap <leader>ss :source %<cr>
-
-" Wrapping
-set nolist  " list disables linebreak
+set hidden
+set mouse=a
+set smartcase
+set ignorecase
 set wrap
 set linebreak
 set textwidth=0
 set wrapmargin=0
 set formatoptions+=t
+set wildcharm=<C-z>
+set nobackup
+set undofile
+set clipboard=unnamedplus
+set background=dark
 
-" CUA Keys
-vnoremap <c-x> "+x
-vnoremap <c-c> "+y
-inoremap <c-v> <c-o>"+gP
+# Swap / undo dirs
+var swapdir = expand('~/.vim/swapfiles')
+var undodir = expand('~/.vim/undodir')
 
-" Mouse
-set mouse=a " Mouse support everywhere
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+if !isdirectory(swapdir)
+  mkdir(swapdir, 'p', 0o700)
 endif
-nnoremap <leader>m :set mouse=a<cr>
-nnoremap <leader>M :set mouse=<cr>
+if !isdirectory(undodir)
+  mkdir(undodir, 'p', 0o700)
+endif
 
-" Language Servers
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-nnoremap <leader>ld :LspDefinition<cr>
-nnoremap <leader>lN :LspPreviousDiagnostic<cr>
-nnoremap <leader>ln :LspNextDiagnostic<cr>
-nnoremap <leader>lr :LspReferences<cr>
-nnoremap <leader>lR :LspRename<cr>
-nnoremap <leader>lt :LspTypeHierarchy<cr>
-nnoremap <leader>lh :LspHover<cr>
+execute 'set directory=' .. fnameescape(swapdir) .. '//'
+execute 'set undodir=' .. fnameescape(undodir) .. '//'
 
-" Build Tools
-augroup compilers
-	autocmd!
-	autocmd BufNewFile,BufRead *.{java,scala,groovy} nnoremap <leader>mb :Gradle assemble<cr>
-	autocmd BufNewFile,BufRead *.{java,scala,groovy} nnoremap <leader>mt :Gradle test<cr>
+# tmux / screen mouse quirk
+if &term =~ '^screen'
+  set ttymouse=xterm2
+endif
 
-	autocmd BufNewFile,BufRead *.{rs} compiler cargo
-	autocmd BufNewFile,BufRead *.{rs} nnoremap <leader>mb :CargoBuild<cr>
-	autocmd BufNewFile,BufRead *.{rs} nnoremap <leader>mt :CargoTest<cr>
+# =========================
+# Keymaps
+# =========================
+nnoremap <leader>fs <Cmd>write<CR>
+nnoremap <leader>w  <C-w>
+nnoremap <leader>bb <Cmd>buffer<Space>
+nnoremap <leader>bl :buffer <C-z>
+nnoremap <leader>bd <Cmd>bdelete<CR>
+nnoremap <leader>bD <Cmd>bufdo bdelete<CR>
+nnoremap <leader>sc <Cmd>edit $MYVIMRC<CR>
+nnoremap <leader>ss <Cmd>source %<CR>
+
+# Netrw instead of NERDTree
+nnoremap <leader>fe <Cmd>Lexplore<CR>
+
+# Toggle line numbers
+nnoremap <leader># <Cmd>set number!<CR>
+
+# Mouse toggle
+nnoremap <leader>m <Cmd>set mouse=a<CR>
+nnoremap <leader>M <Cmd>set mouse=<CR>
+
+# Insert timestamp
+nnoremap <leader>it <Cmd>read !date<CR>
+
+# =========================
+# Clipboard-style keys
+# =========================
+vnoremap <C-x> "+x
+vnoremap <C-c> "+y
+inoremap <C-v> <C-r><C-o>+
+
+# =========================
+# Simple project-root behavior
+# =========================
+def FindProjectRoot(start: string): string
+  var dir = fnamemodify(start, ':p:h')
+  while dir != '/'
+    if isdirectory(dir .. '/.git')
+          || filereadable(dir .. '/settings.gradle')
+          || filereadable(dir .. '/settings.gradle.kts')
+          || filereadable(dir .. '/build.gradle')
+          || filereadable(dir .. '/build.gradle.kts')
+          || filereadable(dir .. '/Cargo.toml')
+      return dir
+    endif
+    var parent = fnamemodify(dir, ':h')
+    if parent == dir
+      break
+    endif
+    dir = parent
+  endwhile
+  return ''
+enddef
+
+augroup project_root
+  autocmd!
+  autocmd BufEnter * {
+    var root = FindProjectRoot(expand('%:p'))
+    if !empty(root)
+      execute 'silent cd ' .. fnameescape(root)
+    endif
+  }
 augroup END
 
-" Version Control
-nnoremap <leader>gs :Git<cr>
-nnoremap <leader>gcc :Git commit<cr>
-nnoremap <leader>gca :Git commit --amend<cr>
-nnoremap <leader>gb :Git blame<cr>
-nnoremap <leader>gri :Git rebase -i<cr>
-nnoremap <leader>gf :Git pull --rebase<cr>
-nnoremap <leader>gp :Git push<cr>
+# =========================
+# LSP
+# =========================
+g:lsp_diagnostics_echo_cursor = 1
 
-" Project Support
-let g:rooter_silent_chdir = 1 " Silence vim-rooter
+nnoremap <leader>ld <Cmd>LspDefinition<CR>
+nnoremap <leader>lN <Cmd>LspPreviousDiagnostic<CR>
+nnoremap <leader>ln <Cmd>LspNextDiagnostic<CR>
+nnoremap <leader>lr <Cmd>LspReferences<CR>
+nnoremap <leader>lR <Cmd>LspRename<CR>
+nnoremap <leader>lt <Cmd>LspTypeHierarchy<CR>
+nnoremap <leader>lh <Cmd>LspHover<CR>
 
-" Toggle Line Numbers
-nnoremap <leader># :set nu!<cr>
+# =========================
+# Build / test via :make
+# =========================
+augroup compilers
+  autocmd!
+  autocmd FileType java,groovy,scala setlocal makeprg=./gradlew\ build
+  autocmd FileType java,groovy,scala nnoremap <buffer> <leader>mb <Cmd>make<CR>
+  autocmd FileType java,groovy,scala nnoremap <buffer> <leader>mt <Cmd>setlocal makeprg=./gradlew\ test <Bar> make <Bar> setlocal makeprg=./gradlew\ build<CR>
 
-" Insert Timestamp
-nnoremap <leader>it :r! date<cr>
+  autocmd FileType rust setlocal makeprg=cargo\ build
+  autocmd FileType rust nnoremap <buffer> <leader>mb <Cmd>make<CR>
+  autocmd FileType rust nnoremap <buffer> <leader>mt <Cmd>setlocal makeprg=cargo\ test <Bar> make <Bar> setlocal makeprg=cargo\ build<CR>
+augroup END
 
+# Quickfix helpers
+nnoremap <leader>co <Cmd>copen<CR>
+nnoremap <leader>cc <Cmd>cclose<CR>
+nnoremap <leader>cn <Cmd>cnext<CR>
+nnoremap <leader>cp <Cmd>cprevious<CR>
+
+# =========================
+# Fugitive
+# =========================
+nnoremap <leader>gs  <Cmd>Git<CR>
+nnoremap <leader>gcc <Cmd>Git commit<CR>
+nnoremap <leader>gca <Cmd>Git commit --amend<CR>
+nnoremap <leader>gb  <Cmd>Git blame<CR>
+nnoremap <leader>gri <Cmd>Git rebase -i<CR>
+nnoremap <leader>gf  <Cmd>Git pull --rebase<CR>
+nnoremap <leader>gp  <Cmd>Git push<CR>
